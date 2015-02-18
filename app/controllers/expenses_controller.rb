@@ -13,9 +13,15 @@ class ExpensesController < ApplicationController
     redirect_to expenses_url
   end
 
+   def destroy
+   @expense = Expense.find(params[:id])
+   @expense.destroy
+   redirect_to expenses_url
+ end
+
 
   def post_params
-    params.require(:expense).permit(:image)
+    params.require(:expense).permit(:date, :category, :participants, :image)
   end
 
 end
