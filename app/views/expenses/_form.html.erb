@@ -36,7 +36,13 @@
     </div>
     <%= error_span(@expense[:participants]) %>
   </div>
-
+  <div class="control-group">
+    <%= f.label :add_photo_receipt, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :image, :class => 'form-control' %>
+    </div>
+    <%= error_span(@expense[:category]) %>
+  </div>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
