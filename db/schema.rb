@@ -11,19 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218135418) do
+ActiveRecord::Schema.define(version: 20150218140316) do
 
   create_table "claims", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expense_id"
   end
+
+  add_index "claims", ["expense_id"], name: "index_claims_on_expense_id", using: :btree
 
   create_table "employees", force: true do |t|
     t.string   "name"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expense_id"
+    t.integer  "claim_id"
   end
+
+  add_index "employees", ["claim_id"], name: "index_employees_on_claim_id", using: :btree
+  add_index "employees", ["expense_id"], name: "index_employees_on_expense_id", using: :btree
 
   create_table "expenses", force: true do |t|
     t.datetime "date"
@@ -39,6 +47,9 @@ ActiveRecord::Schema.define(version: 20150218135418) do
     t.integer  "invoice_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expense_id"
   end
+
+  add_index "projects", ["expense_id"], name: "index_projects_on_expense_id", using: :btree
 
 end
