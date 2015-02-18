@@ -1,0 +1,31 @@
+<%= form_for @claim, :html => { :class => "form-horizontal claim" } do |f| %>
+
+    <% if @claim.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@claim.errors.count, "error") %> prohibited this claim from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @claim.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :expense_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :expense_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@claim[:expense_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            claims_path, :class => 'btn btn-default' %>
+
+<% end %>
