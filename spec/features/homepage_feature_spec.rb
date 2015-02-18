@@ -8,9 +8,9 @@ describe "The Homepage" do
     expect(current_path).to eq new_expense_path
   end
 
-  scenario "View all claims" do 
+  scenario "View all expenses" do
     visit '/'
-    click_on 'View claims'
-    expect(current_path).to eq claim_path
+    click_on 'View expenses'
+    expect(current_path).to eq expenses_path
   end
 end
