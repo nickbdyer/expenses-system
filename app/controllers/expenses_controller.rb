@@ -8,5 +8,4 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
-
 end
