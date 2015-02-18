@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
 
 
   def post_params
-    params.require(:expense).permit(:date, :category, :participants, :image)
+    params.require(:expense).permit(:date, :category, :participants, :image, :amount, :project_name)
   end
 
 end
