@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 gem 'rspec-rails'
 
+gem 'rails_12factor'
 gem 'capybara'
 gem 'paperclip'
 
