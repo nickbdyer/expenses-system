@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: expense_system_production
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
   username: expense_system
   password: <%= ENV['EXPENSE_SYSTEM_DATABASE_PASSWORD'] %>
